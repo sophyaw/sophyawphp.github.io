@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: rgb(143, 167, 184);
+  color: rgb(255, 255, 255);
+  transition: 0.4s;
+  font-family: "Poppins", sans-serif;
+}
+
+input[type="checkbox"]{
+  position: relative;
+  width: 40px;
+  height: 20px;
+  appearance: none;
+  background-color:rgb(143, 167, 184);
+  outline: none;
+  border-radius: 10px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked{
+  background-color: rgb(0, 0, 0);
+}
+
+input[type="checkbox"]::before{
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #fcfcfc;
+  border-radius: 50%;
+  top: 8%;
+  left:2px;
+  transition: 0.5s ease;
+}
+
+input[type="checkbox"]:checked::before{
+  transform: translateX(20px);
+}
+
+.dark{
+  background-color: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+.darklight {
+  width: 50px;
+  padding-top: 0.9rem;
+} 
+
+header {
+  padding: 1rem;
+  margin-top: 4rem;
+}
+.home {
+  width: 100%;
+  height: 100vh;
+  position:relative;
+  display: flex;
+  flex-direction: column;
+  background: url("header.jpeg");
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+}
+
+.home:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 60vh;
+  bottom: 0;
+  left: 0;
+  background:linear-gradient(0deg,rgb(143, 167, 184)10%, rgba(255, 255, 255,0)80%);
+}
+
+body.dark .home:before {
+  background: linear-gradient(0deg,rgb(0, 0, 0)10%, rgba(0, 0, 0, 0)80%);
+}
+
+.header-title {
+  margin: auto auto;
+  font-size: 5.8vw;
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 2px;
+  transition: 0.2s;
+}
+
+.header-title:hover{
+  color: rgb(236, 71, 126);
+}
+
+.logo{
+  width: 50px;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  color:white
+}
+
+.hamburger-button {
+  display: none;
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.navbar .darklight {
+  display: none;
+}
+
+nav {
+  display: flex;
+  background-color: rgba(255,255,255,0.4);
+  justify-content: space-between;
+  padding: 0.5rem 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar li a, .navbar .dropdown a {
+    display: block;
+    color: rgb(12, 1, 53);
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration:none;
+    margin-right: 10px;
+}
+
+.navbar li a:hover {
+    color:rgba(236, 71, 126, 0.767);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  color: #333;
+}
+
+.dropdown-content li:hover {
+  background-color: #ddd;
+}
+
+.hover-dropdown:hover + .dropdown-content, .dropdown-content:hover {
+  display: block;
+  right: 20px;
+}
+.login-button {
+  font-size: 14px;
+	display: inline-block;
+  font-weight: 700;
+  border: none;
+	text-decoration: none;
+	color: white !important;
+  background-color: #8FA7B8;
+  border-radius: 50px;
+}
+
+#merch {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.merch-container {
+  width: 1150px;
+  height: 175px;
+  margin: auto auto;
+}
+
+.merch-title {
+  text-align: center;
+  height: 0.6rem;
+  font-size: 2rem;
+  margin-bottom: 5rem;
+  margin-top: 0.1rem;
+}
+
+.merch-title:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+.image-gallery{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 3rem;
+  column-gap: 2rem;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 500px;
+  margin-bottom: 5rem;
+}
+
+.image-box {
+  width: 100%;
+  height: 250px;
+  justify-content: space-around;
+  position: relative;
+  background-color: rgb(86, 87, 87);
+  margin: 0.5rem; 
+}
+
+.image-box img {
+  width: 100%;
+  height: 250px;
+  object-fit:cover;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.image-box img:hover {
+  opacity: 0.5;
+}
+
+.svt{
+  text-align: center;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.svt1 {
+  text-align: center;
+  padding-top: 13.4rem;
+  font-weight: 700;
+  color: rgba(255, 0, 85, 0.767);
+}
+
+.seven {
+  text-align: center;
+  padding-top: 1.5rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.767);
+}
+
+.seven1 {
+  text-align: center;
+  padding-top: 13.4rem;
+  font-weight: 700;
+  color: rgba(255, 0, 85, 0.767);
+}
+
+#album {
+  width: 100%;
+  padding: 5rem 0;
+}
+
+.album-title {
+  text-align: center;
+  height: 0.6rem;
+  font-size: 2rem;
+  margin-top: 6rem;
+  margin-bottom: 5rem;
+}
+
+.album-container {
+  width: 1150px;
+  height: 200px;
+  margin: auto auto;
+}
+
+.album-title:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+#about {
+  width: 100%;
+  padding: 5rem 0;
+  font-size: 1.3vw;
+}
+
+.about-title {
+  text-align: center;
+  height: 0.6rem;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.about-title:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+.about-svt {
+  text-align: center;
+  font-weight: 500;
+  font-size: 2rem;
+  padding-bottom: 4rem;
+}
+
+.about1 {
+  text-align: center;
+}
+
+.misi , .svtstore {
+  padding-top: 5%;
+  text-align: center
+}
+
+.aboutnew , .cont {
+  display: flex;
+  align-items: center;
+}
+
+.newabout {
+  padding-left: 1%;
+  text-align: start;
+  padding-bottom: 4rem;
+}
+
+.about-title2 {
+  text-align: center;
+  height: 0.1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-title2:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+.aboutnew , .cont , .imagee  {
+  margin-right: 200px;
+}
+
+.aboutnew , .cont , .imagee img {
+  margin-top: 40px;
+  margin-left: 150px;
+  width: 200px;
+  height: 300px;
+  padding-top: 1rem;
+  padding-bottom: 5rem;
+}
+
+
+.contactUs {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0px;
+}
+
+.contact-heading {
+  text-align: center;
+  margin-bottom: 65px;
+}
+
+.contact-heading h2 {
+  font-size: 2.2rem;
+  margin-top: 10rem;
+  margin-bottom: 3rem;
+}
+
+.contact-heading h2:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+.contactUs form {
+  width: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contactUs form input, .contactUs form textarea {
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+  height: 40px;
+  margin: 5px 0px;
+  padding: 10px;
+  background-color: #e2e2e2;
+  color: #0f0d0d;
+  border-radius: 5px;
+  border: none;
+}
+
+.contactUs form textarea {
+  height: 40px;
+}
+
+.main-btn {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  margin-top: 0px;
+  width: 70px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.1s ease ;
+  border: none;
+}
+
+.main-btn:hover {
+  background-color:  #5c5a5a50;
+  color: rgba(236, 71, 126, 0.767);
+}
+
+.contact-btn{
+  margin-top: 40px;
+}
+
+footer {
+  background-color: #5c5a5a50;
+  text-align: center;
+  padding: 1rem;  
+  margin-top: 10rem;
+}
+
+footer .social {
+  padding: 0.3rem;
+}
+
+.social a { 
+  color: rgb(255, 255, 255);
+  justify-content: space-between;
+  margin: 0.2rem;
+}
+
+.social a:hover {
+  color: rgba(236, 71, 126, 0.767);
+}
+
+footer .credit {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #5c5a5a50;
+  color: rgb(143, 167, 184);
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+#scroll-to-top:hover {
+  background-color: rgba(236, 71, 126, 0.767);
+}
+
+@media (max-width: 1200px) {
+  header {
+    margin: 1rem 0;
+  }
+  nav {
+    width: 100%;
+    position: static;
+  }
+  .navbar {
+    display: none;
+  }
+  .navbar.active {
+    display: block;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: #ffffff;
+    z-index: 999;
+    color: #000;
+  }
+  .navbar .darklight {
+    display: block;
+    margin: 0 auto;
+  }
+  .navbar .dropdown {
+    display: block;
+    margin: 0 auto;
+  }
+  .dropdown-content {
+    right: 0;
+    left: 0;
+    text-align: center;
+  }
+  .hover-dropdown:hover + .dropdown-content, .dropdown-content:hover {
+    display: block;
+    right: 20px;
+    left: 20px;
+  }
+  .hamburger-button {
+    display: block;
+    margin-right: 1rem;
+  }
+  .darklight {
+    display: none;
+  }
+  .image-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .image-box img {
+    width: 100%;
+    position: initial;
+    object-fit: cover;
+  }
+  .merch-title  {
+    height: 100%;
+    padding-top: 20%;
+  }
+  .album-title {
+    height: 100%;
+    padding-top: 0;
+  }
+  .merch-container , .album-container {
+    width: 90%;
+    height: 100%;
+    padding: 0 0.1rem;
+  }
+  .image-box {
+    width: 100%;
+    height: 0%;
+    margin: 0;
+  }
+  .svt , .svt1, .seven, .seven1 {
+    padding: 0;
+  }
+  .aboutnew .cont {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .aboutnew {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0;
+  }
+  .cont {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  .imagee {
+    margin: 0; 
+  }
+  .imagee img {
+    text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    object-fit: contain;
+  }
+  .newabout {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .newabout div {
+    font-size: 14px;
+  }
+  body.dark .navbar {
+    background: #383838;
+  }
+  body.dark .navbar li a {
+    color: #ffffff;
+  }
+  #about {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  .about1 {
+    font-size: 0.8rem;
+  }
+  #merch, #album {
+    padding-top: 1rem;
+    padding-bottom: 0;
+  }
+  input[type="checkbox"]{
+    margin-bottom: 1.5rem;
+    margin-left: 0.2rem;
+  }
+  .contactUs {
+    padding-top: 0px;
+    padding-bottom: 0;
+  }
+  .contactUs form {
+    width: 300px;   
+  }
+  
+  .contact-heading p {
+    font-size: 14px;
+  }
+}
+
+
+
